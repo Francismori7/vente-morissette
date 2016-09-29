@@ -1,0 +1,30 @@
+.stats {
+  .stats-item {
+    p {
+      text-align: center;
+    }
+
+    &:first-child p.heading {
+      margin-top: 0;
+    }
+
+    .heading {
+      font-weight: 200;
+      display: block;
+      font-size: 12px;
+      letter-spacing: 1px;
+      margin: 10px 0 5px;
+      text-transform: uppercase;
+      color: $text-muted;
+    }
+
+    .title {
+      color: $gray-dark;
+      font-weight: 400;
+      font-size: 28px;
+      line-height: 1;
+      word-break: break-all;
+      margin-bottom: 0;
+    }
+  }
+}
