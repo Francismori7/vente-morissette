@@ -1,0 +1,10 @@
+.img-avatar {
+  @extend .img-circle;
+}
+
+.img-avatar-navbar {
+  max-width: 32px;
+  position: absolute;
+  left: -40px;
+  top: 4px;
+}

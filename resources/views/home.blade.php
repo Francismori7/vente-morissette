@@ -25,7 +25,7 @@
                                     <h4 class="card-title flex-items-xs-between d-f">
                                         <span>{{ $product->name }}</span>
                                         <span class="tag tag-info flex-xs-top">
-                                            {{ money_format("$%i", $product->price / 100) }}
+                                            {{ $product->asCurrency() }}
                                         </span>
                                     </h4>
 
@@ -74,6 +74,11 @@
                         @empty
                             <div class="list-group-item"><em>Aucune catégorie pour le moment...</em></div>
                         @endforelse
+                        @if($stats->categories > \App\Category::countOnHomepage())
+                            <a href="/categories" class="list-group-item list-group-item-action d-f">
+                                <em>Plus de catégories...</em>
+                            </a>
+                        @endif
                     </div>
                 </div>
                 <div class="card">

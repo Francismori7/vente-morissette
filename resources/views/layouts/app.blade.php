@@ -23,12 +23,12 @@
 
     <!-- Scripts -->
     <script>
-        window.Laravel = <?php echo json_encode([
-                'csrfToken' => csrf_token(),
+        window.Laravel =;;;;;;;;;;;;;;;;;; <?php echo json_encode([
+            'csrfToken' => csrf_token(),
         ]); ?>
     </script>
 </head>
-<body id="app" :user="{{ Auth::user() }}" class="m-b-3">
+<body id="app" :user="{{ auth()->user() }}" class="m-b-3">
     <nav class="navbar navbar-full navbar-dark m-b-2 bg-success">
         <div class="container">
             <a class="navbar-brand" href="{{ url('/') }}">{{ config('app.name') }}</a>
@@ -44,7 +44,7 @@
                 </ul>
                 <ul class="nav navbar-nav pull-xs-right">
                     <!-- Authentication Links -->
-                    @if (!Auth::user())
+                    @if (!auth()->user())
                         <li class="nav-item pull-xs-none pull-md-left">
                             <a class="nav-link" href="{{ url('/login') }}">Connexion</a>
                         </li>
@@ -55,8 +55,9 @@
                         <li class="dropdown nav-item pull-xs-none pull-md-left">
                             <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown" role="button"
                                aria-expanded="false">
-                                <img :src="user.avatar" :alt="user.name" class="img-avatar img-avatar-navbar">
-                                <span v-text="user.name"></span> <span class="caret"></span>
+                                <img src="{{ auth()->user()->avatar }}" alt="{{ auth()->user()->name }}"
+                                     class="img-avatar img-avatar-navbar">
+                                {{ auth()->user()->name }} <span class="caret"></span>
                             </a>
 
                             <div class="dropdown-menu dropdown-menu-right" role="menu">
