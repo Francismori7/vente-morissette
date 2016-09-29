@@ -1,7 +1,13 @@
 // Variables
 @import "variables";
 // Bootstrap
-@import "node_modules/bootstrap/scss/bootstrap-flex";
+@import "bootstrap-flex";
+
+@import "./components/avatar";
+@import "./components/cards";
+@import "./components/list-group";
+@import "./components/page-header";
+@import "./components/stats";
 
 .d-f {
   display: flex;
@@ -9,28 +15,4 @@
 
 *[v-cloak] {
   display: none;
-}
-
-@import "./components/avatar";
-@import "./components/stats";
-
-.page-header {
-  padding-bottom: 9px;
-  margin: 40px 0 20px;
-  border-bottom: 1px solid #eee;
-}
-
-.card.no-top-down-borders {
-  border-bottom-width: 0;
-
-  .card-header {
-    border-bottom-width: 0;
-  }
-}
-
-.list-group-flush {
-  .list-group-item {
-    border-width: $list-group-border-width 0;
-    border-radius: 0;
-  }
 }

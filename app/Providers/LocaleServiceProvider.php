@@ -4,6 +4,8 @@ namespace App\Providers;
 
 use Carbon\Carbon;
 use Illuminate\Support\ServiceProvider;
+use Faker\Factory as FakerFactory;
+use Faker\Generator as FakerGenerator;
 
 class LocaleServiceProvider extends ServiceProvider
 {
@@ -16,6 +18,10 @@ class LocaleServiceProvider extends ServiceProvider
     {
         setlocale(LC_ALL, 'fr_CA', 'fr_CA.UTF-8');
         Carbon::setLocale('fr');
+
+        $this->app->singleton(FakerGenerator::class, function () {
+            return FakerFactory::create('fr_CA');
+        });
     }
 
     /**

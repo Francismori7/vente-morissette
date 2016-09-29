@@ -2,6 +2,7 @@
 
 use App\Category;
 use App\Product;
+use App\Scopes\UnsoldProductScope;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
 use Illuminate\Foundation\Testing\DatabaseTransactions;
 
@@ -14,6 +15,7 @@ class ProductsTest extends TestCase
         parent::setUp();
 
         factory(Product::class, 200)->create();
+        factory(Product::class, 50)->create(['sold_at' => new DateTime]);
     }
 
     /** @test */
@@ -25,7 +27,7 @@ class ProductsTest extends TestCase
     }
 
     /** @test */
-    public function it_gets_all_products()
+    public function it_gets_all_unsold_products()
     {
         $products = Product::all();
 
@@ -65,4 +67,15 @@ class ProductsTest extends TestCase
         $this->assertEquals("$(0,45 CAD)", $product->asCurrency());
     }
 
+    /** @test */
+    public function it_doesnt_show_sold_products()
+    {
+        $products = Product::all();
+
+        $this->assertCount(200, $products);
+
+        $products = Product::withoutGlobalScope(UnsoldProductScope::class)->get();
+
+        $this->assertCount(250, $products);
+    }
 }

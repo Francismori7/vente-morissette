@@ -14,6 +14,9 @@ require('laravel-elixir-vue');
  */
 
 elixir(mix => {
-    mix.sass('app.scss')
-        .webpack('app.js');
+    mix.sass('app.scss', null, null, { includePaths: [
+        'node_modules/bootstrap/scss/'
+    ]})
+        .webpack('app.js')
+        .browserSync({ proxy: 'vente-morissette.app' });
 });

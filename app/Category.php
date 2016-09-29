@@ -26,18 +26,42 @@ class Category extends Model
         'name',
     ];
 
+    /**
+     * A category contains multiple products.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
+     */
     public function products()
     {
         return $this->belongsToMany(Product::class);
     }
 
+    /**
+     * Categories to display on the home page.
+     *
+     * @param Builder $query
+     */
     public function scopeForHomepage(Builder $query)
     {
-        $query->take(Category::countOnHomepage())->orderBy('name');
+        $query->take(self::countOnHomepage())->orderBy('name');
     }
 
+    /**
+     * Maximum number of categories to display on home page.
+     * @return int
+     */
     public static function countOnHomepage()
     {
         return 6;
+    }
+
+    /**
+     * Route model binding for categories should use the name field.
+     *
+     * @return string
+     */
+    public function getRouteKeyName()
+    {
+        return 'name';
     }
 }

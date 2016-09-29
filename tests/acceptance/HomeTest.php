@@ -2,6 +2,7 @@
 
 use App\Category;
 use App\Product;
+use App\User;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
 use Illuminate\Foundation\Testing\DatabaseTransactions;
 
@@ -20,7 +21,8 @@ class HomeTest extends TestCase
             $this->see($product->name);
             $this->see($product->asCurrency());
             $this->see($product->description);
-            $this->seeLink('Détails', "/produits/{$product->id}");
+            $this->seeElement('img', ['alt' => $product->name]);
+            $this->seeElement('a', ['href' => route('products.show', $product)]);
         }
     }
 
@@ -38,12 +40,24 @@ class HomeTest extends TestCase
         $this->see('Plus de catégories...');
     }
 
+    /** @test */
+    public function it_shows_the_basic_stats()
+    {
+        $this->visit('/');
+
+        $this->seeInElement('p.title#categories', Category::count());
+        $this->seeInElement('p.title#products', Product::count());
+        $this->seeInElement('p.title#users', User::count());
+    }
+
+
     protected function setUp()
     {
         parent::setUp();
 
         factory(Product::class, 100)->create();
         factory(Category::class, 10)->create();
+        factory(User::class, 10)->create();
     }
 
 }

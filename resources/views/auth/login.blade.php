@@ -4,18 +4,31 @@
 
 @section('content')
     <div class="container">
+        <h1 class="page-header">Connexion</h1>
+
         <div class="row">
-            <div class="col-xs-12 col-md-4 push-md-7">
+            <div class="col-xs-12 col-md-4 push-md-8">
                 <div class="card">
                     <div class="card-header">Créer un compte</div>
                     <div class="card-block">
                         <a href="{{ url('/register') }}" class="btn btn-info btn-block">
-                            Créer un nouveau compte
+                            Créer un compte
+                        </a>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-header">Réseaux sociaux</div>
+                    <div class="card-block">
+                        <a href="{{ url('/login/facebook') }}" class="btn btn-primary btn-block">
+                            <span class="fa fa-facebook"></span> Facebook
+                        </a>
+                        <a href="{{ url('/login/google') }}" class="btn btn-danger btn-block">
+                            <span class="fa fa-google"></span> Google
                         </a>
                     </div>
                 </div>
             </div>
-            <div class="col-xs-12 col-md-6 offset-md-1 pull-md-4">
+            <div class="col-xs-12 col-md-8 pull-md-4">
                 <div class="card">
                     <div class="card-header">Se connecter</div>
                     <div class="card-block">

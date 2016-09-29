@@ -19,6 +19,7 @@ class CreateProductsTable extends Migration
             $table->integer('price');
             $table->text('description');
             $table->timestamps();
+            $table->timestamp('sold_at')->nullable();
             $table->softDeletes();
         });
     }

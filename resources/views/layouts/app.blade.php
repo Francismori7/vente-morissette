@@ -23,12 +23,12 @@
 
     <!-- Scripts -->
     <script>
-        window.Laravel =;;;;;;;;;;;;;;;;;; <?php echo json_encode([
+        window.Laravel = <?php echo json_encode([
             'csrfToken' => csrf_token(),
         ]); ?>
     </script>
 </head>
-<body id="app" :user="{{ auth()->user() }}" class="m-b-3">
+<body id="app" :user="{{ $currentUser }}" class="m-b-3">
     <nav class="navbar navbar-full navbar-dark m-b-2 bg-success">
         <div class="container">
             <a class="navbar-brand" href="{{ url('/') }}">{{ config('app.name') }}</a>
@@ -39,12 +39,15 @@
             <div class="collapse navbar-toggleable-sm pull-xs-left pull-md-none" id="collapsenav">
                 <ul class="nav navbar-nav">
                     <li class="nav-item pull-xs-none pull-md-left">
-                        <a class="nav-link" href="{{ url('/') }}">Accueil</a>
+                        <a class="nav-link" href="{{ route('home') }}">Accueil</a>
+                    </li>
+                    <li class="nav-item pull-xs-none pull-md-left">
+                        <a class="nav-link" href="{{ route('products.index') }}">Produits</a>
                     </li>
                 </ul>
                 <ul class="nav navbar-nav pull-xs-right">
                     <!-- Authentication Links -->
-                    @if (!auth()->user())
+                    @if (!$currentUser)
                         <li class="nav-item pull-xs-none pull-md-left">
                             <a class="nav-link" href="{{ url('/login') }}">Connexion</a>
                         </li>
@@ -55,9 +58,9 @@
                         <li class="dropdown nav-item pull-xs-none pull-md-left">
                             <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown" role="button"
                                aria-expanded="false">
-                                <img src="{{ auth()->user()->avatar }}" alt="{{ auth()->user()->name }}"
+                                <img src="{{ $currentUser->avatar }}" alt="{{ $currentUser->name }}"
                                      class="img-avatar img-avatar-navbar">
-                                {{ auth()->user()->name }} <span class="caret"></span>
+                                {{ $currentUser->name }} <span class="caret"></span>
                             </a>
 
                             <div class="dropdown-menu dropdown-menu-right" role="menu">

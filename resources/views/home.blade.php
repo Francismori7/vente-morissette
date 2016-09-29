@@ -17,40 +17,29 @@
                 <h3 class="page-header">Produits en vedette</h3>
 
                 <div class="row">
-                    @foreach($products as $product)
-                        <div class="col-sm-6 col-xs-12">
-                            <div class="card">
-                                <img class="card-img-top w-100" src="//placehold.it/350x250" alt="Card image cap">
-                                <div class="card-block">
-                                    <h4 class="card-title flex-items-xs-between d-f">
-                                        <span>{{ $product->name }}</span>
-                                        <span class="tag tag-info flex-xs-top">
-                                            {{ $product->asCurrency() }}
-                                        </span>
-                                    </h4>
-
-                                    <p class="text-muted small">
-                                        {{ ucfirst($product->created_at->diffForHumans()) }}
-                                    </p>
-                                    <p class="card-text">{{ $product->description }}</p>
-                                    <a href="/produits/{{ $product->id }}" class="btn btn-primary btn-block">Détails</a>
-                                </div>
+                    <div class="col-xs">
+                        @foreach($products->chunk(2) as $chunk)
+                            <div class="card-deck">
+                                @foreach($chunk as $product)
+                                    @include('products._card', compact('product'))
+                                @endforeach
                             </div>
-                        </div>
-                    @endforeach
+                        @endforeach
+                    </div>
                 </div>
                 <div class="row">
                     <div class="col-xs">
                         <hr>
-                        <a href="/produits" class="btn btn-secondary btn-block">Voir tous les produits à vendre</a>
+                        <a href="{{ route('products.index') }}" class="btn btn-secondary btn-block">Voir tous les
+                            produits à vendre</a>
                     </div>
                 </div>
             </div>
             <div class="col-md-3 col-xs-12">
                 <div class="card">
-                    <div class="card-header"><a href="/search">Rechercher un produit</a></div>
+                    <div class="card-header"><a href="{{ route('search') }}">Rechercher un produit</a></div>
                     <div class="card-block">
-                        <form action="{{ url('/produits') }}" method="get">
+                        <form action="{{ route('products.index') }}" method="get">
                             <div class="input-group">
                                 <input type="text" class="form-control" placeholder="Termes..." name="search" required>
                                 <span class="input-group-btn">
@@ -63,10 +52,10 @@
                     </div>
                 </div>
                 <div class="card no-top-down-borders">
-                    <div class="card-header"><a href="/categories">Catégories</a></div>
+                    <div class="card-header"><a href="{{ route('categories.index') }}">Catégories</a></div>
                     <div class="list-group list-group-flush">
                         @forelse($categories as $category)
-                            <a href="/categories/{{ Illuminate\Support\Str::lower($category->name) }}"
+                            <a href="{{ route('categories.show', $category) }}"
                                class="list-group-item list-group-item-action d-f flex-items-xs-between">
                                 <span>{{ $category->name }}</span> <span
                                         class="tag tag-info pull-xs-right flex-xs-middle">{{ $category->products_count ?: '' }}</span>
@@ -74,28 +63,31 @@
                         @empty
                             <div class="list-group-item"><em>Aucune catégorie pour le moment...</em></div>
                         @endforelse
+
                         @if($stats->categories > \App\Category::countOnHomepage())
-                            <a href="/categories" class="list-group-item list-group-item-action d-f">
+                            <a href="{{ route('categories.index') }}"
+                               class="list-group-item list-group-item-action d-f">
                                 <em>Plus de catégories...</em>
                             </a>
                         @endif
                     </div>
                 </div>
                 <div class="card">
-                    <div class="card-header"><a href="/stats">Statistiques</a></div>
+                    <div class="card-header"><a href="{{ route('statistics.index') }}">Statistiques</a></div>
                     <div class="card-block">
                         <div class="stats">
                             <div class="stats-item">
-                                <p class="heading">Catégories</p>
-                                <p class="title">{{ $stats->categories }}</p>
+                                <p class="heading"><a href="{{ route('categories.index') }}#categories">Catégories</a>
+                                </p>
+                                <p class="title" id="categories">{{ $stats->categories }}</p>
                             </div>
                             <div class="stats-item">
-                                <p class="heading">Produits</p>
-                                <p class="title">{{ $stats->products }}</p>
+                                <p class="heading"><a href="{{ route('categories.index') }}#products">Produits</a></p>
+                                <p class="title" id="products">{{ $stats->products }}</p>
                             </div>
                             <div class="stats-item">
-                                <p class="heading">Usagers en ligne</p>
-                                <p class="title">22</p>
+                                <p class="heading"><a href="{{ route('categories.index') }}#users">Usagers</a></p>
+                                <p class="title" id="users">{{ $stats->users }}</p>
                             </div>
                         </div>
                     </div>

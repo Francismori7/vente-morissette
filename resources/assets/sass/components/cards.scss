@@ -1,0 +1,21 @@
+.card-footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+}
+
+.card-deck .card {
+  padding-bottom: 50px;
+}
+
+.card.no-top-down-borders {
+  border-bottom-width: 0;
+
+  .card-header {
+    border-bottom-width: 0;
+  }
+}
+
+.card-block p:last-child {
+  margin-bottom: 0;
+}

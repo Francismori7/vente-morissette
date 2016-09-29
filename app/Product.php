@@ -2,6 +2,7 @@
 
 namespace App;
 
+use App\Scopes\UnsoldProductScope;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
@@ -37,6 +38,17 @@ class Product extends Model
         'description',
     ];
 
+    protected $dates = [
+        'sold_at'
+    ];
+
+    protected static function boot()
+    {
+        parent::boot();
+
+        static::addGlobalScope(new UnsoldProductScope);
+    }
+
     /**
      * Featured products.
      *
@@ -66,5 +78,14 @@ class Product extends Model
     public function asCurrency()
     {
         return money_format("$%i", $this->price / 100);
+    }
+
+    /**
+     * Determines if the product is sold.
+     *
+     * @return bool
+     */
+    public function isSold() {
+        return $this->sold_at !== null;
     }
 }
