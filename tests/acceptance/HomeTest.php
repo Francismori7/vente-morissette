@@ -35,9 +35,7 @@ class HomeTest extends TestCase
             $this->see($category->name);
         }
 
-        if (Category::count() > Category::countOnHomepage()) {
-            $this->see('Plus de catégories...');
-        }
+        $this->see('Plus de catégories...');
     }
 
     protected function setUp()
