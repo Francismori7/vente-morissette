@@ -58,13 +58,13 @@ class ProductsTest extends TestCase
     }
 
     /** @test */
-    public function it_calculates_the_currency()
+    public function it_provides_the_currency()
     {
         $product = new Product(['price' => 124]);
-        $this->assertEquals("$1,24 CAD", $product->asCurrency());
+        $this->assertEquals("$1,24", $product->asCurrency());
 
         $product = new Product(['price' => -45]);
-        $this->assertEquals("$(0,45 CAD)", $product->asCurrency());
+        $this->assertEquals("$(0,45)", $product->asCurrency());
     }
 
     /** @test */

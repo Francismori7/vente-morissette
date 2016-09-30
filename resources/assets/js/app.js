@@ -21,5 +21,15 @@ const app = new Vue({
 
     ready() {
         Echo.channel('products');
+
+        $('li.dropdown.cart-dropdown > a').on('click', function (event) {
+            $(this).parent().toggleClass("open");
+        });
+
+        $('body').on('click', function (e) {
+            if (!$('li.dropdown.cart-dropdown').is(e.target) && $('li.dropdown.cart-dropdown').has(e.target).length === 0 && $('.open').has(e.target).length === 0) {
+                $('li.dropdown.cart-dropdown').removeClass('open');
+            }
+        });
     }
 });

@@ -77,7 +77,7 @@ class Product extends Model
      */
     public function asCurrency()
     {
-        return money_format("$%i", $this->price / 100);
+        return currency($this->price);
     }
 
     /**

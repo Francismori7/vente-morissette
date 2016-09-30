@@ -46,6 +46,8 @@
                     </li>
                 </ul>
                 <ul class="nav navbar-nav pull-xs-right">
+                    @include('layouts._cart')
+
                     <!-- Authentication Links -->
                     @if (!$currentUser)
                         <li class="nav-item pull-xs-none pull-md-left">

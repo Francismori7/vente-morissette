@@ -17,6 +17,6 @@ elixir(mix => {
     mix.sass('app.scss', null, null, { includePaths: [
         'node_modules/bootstrap/scss/'
     ]})
-        .webpack('app.js')
-        .browserSync({ proxy: 'vente-morissette.app' });
+        .webpack('app.js');
+        //.browserSync({ proxy: 'vente-morissette.app' });
 });

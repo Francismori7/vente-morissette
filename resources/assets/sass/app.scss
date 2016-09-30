@@ -2,12 +2,12 @@
 @import "variables";
 // Bootstrap
 @import "bootstrap-flex";
-
-@import "./components/avatar";
-@import "./components/cards";
-@import "./components/list-group";
-@import "./components/page-header";
-@import "./components/stats";
+@import "components/_avatar";
+@import "components/_cards";
+@import "components/_cart";
+@import "components/_list-group";
+@import "components/_page-header";
+@import "components/_stats";
 
 .d-f {
   display: flex;

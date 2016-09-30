@@ -4409,7 +4409,7 @@ a.bg-inverse:focus, a.bg-inverse:hover {
   -webkit-box-align: start;
   align-items: flex-start; }
 
-.flex-items-xs-middle {
+.flex-items-xs-middle, .cart-dropdown-menu .cart-options, .cart-dropdown-menu .cart-checkout {
   -webkit-box-align: center;
   align-items: center; }
 
@@ -4435,14 +4435,14 @@ a.bg-inverse:focus, a.bg-inverse:hover {
   -webkit-box-pack: center;
   justify-content: center; }
 
-.flex-items-xs-right {
+.flex-items-xs-right, .cart-dropdown-menu .cart-checkout {
   -webkit-box-pack: end;
   justify-content: flex-end; }
 
 .flex-items-xs-around {
   justify-content: space-around; }
 
-.flex-items-xs-between {
+.flex-items-xs-between, .cart-dropdown-menu .product, .cart-dropdown-menu .cart-options {
   -webkit-box-pack: justify;
   justify-content: space-between; }
 
@@ -4821,7 +4821,7 @@ a.bg-inverse:focus, a.bg-inverse:hover {
 .p-t-1 {
   padding-top: 1rem !important; }
 
-.p-r-1 {
+.p-r-1, .cart-dropdown-menu .product .product-name {
   padding-right: 1rem !important; }
 
 .p-b-1 {
@@ -5075,9 +5075,10 @@ a.text-gray-dark:focus, a.text-gray-dark:hover {
 
 .img-avatar-navbar {
   max-width: 32px;
-  position: absolute;
-  left: -40px;
-  top: 4px; }
+  position: relative;
+  float: left;
+  top: -3px;
+  left: -6px; }
 
 .card-footer {
   position: absolute;
@@ -5094,6 +5095,18 @@ a.text-gray-dark:focus, a.text-gray-dark:hover {
 
 .card-block p:last-child {
   margin-bottom: 0; }
+
+.cart-dropdown-menu {
+  width: 100%; }
+  @media (min-width: 544px) {
+    .cart-dropdown-menu {
+      min-width: 300px; } }
+  @media (min-width: 768px) {
+    .cart-dropdown-menu {
+      min-width: 400px; } }
+  .cart-dropdown-menu .product .product-name {
+    -webkit-box-flex: 1;
+    flex: 1; }
 
 .list-group-flush .list-group-item {
   border-width: 1px 0;
@@ -5126,7 +5139,7 @@ a.text-gray-dark:focus, a.text-gray-dark:hover {
   line-height: 1;
   word-break: break-all; }
 
-.d-f {
+.d-f, .cart-dropdown-menu .product, .cart-dropdown-menu .cart-options, .cart-dropdown-menu .cart-checkout {
   display: -webkit-box;
   display: flex; }
 

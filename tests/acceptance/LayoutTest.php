@@ -16,4 +16,11 @@ class LayoutTest extends TestCase
 
         $this->visit('/')->see('Déconnexion')->see($user->name);
     }
+
+    /** @test */
+    public function it_shows_the_users_cart()
+    {
+        $this->visit('/')->see('Panier')->seeElement('span.fa.fa-shopping-cart');
+    }
+
 }
