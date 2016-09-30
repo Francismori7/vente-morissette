@@ -12,6 +12,9 @@
 */
 
 Auth::routes();
+Route::get('login/{provider}', ['as' => 'oauth.redirect', 'uses' => 'Auth\OAuthController@handleProviderRequest']);
+Route::get('login/{provider}/callback',
+    ['as' => 'oauth.callback', 'uses' => 'Auth\OAuthController@handleProviderCallback']);
 
 Route::get('/', 'HomeController@index')->name('home');
 Route::get('search', 'HomeController@search')->name('search');

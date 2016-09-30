@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Auth;
 
+use App\Jobs\User\CreateUser;
 use App\User;
 use Validator;
 use App\Http\Controllers\Controller;
@@ -65,11 +66,11 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        return User::create([
+        return $this->dispatch(new CreateUser([
             'name' => $data['name'],
             'city' => $data['city'],
             'email' => $data['email'],
             'password' => bcrypt($data['password']),
-        ]);
+        ]));
     }
 }

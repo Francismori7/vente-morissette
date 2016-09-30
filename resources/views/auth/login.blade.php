@@ -19,10 +19,10 @@
                 <div class="card">
                     <div class="card-header">Réseaux sociaux</div>
                     <div class="card-block">
-                        <a href="{{ url('/login/facebook') }}" class="btn btn-primary btn-block">
+                        <a href="{{ route('oauth.redirect', 'facebook') }}" class="btn btn-primary btn-block">
                             <span class="fa fa-facebook"></span> Facebook
                         </a>
-                        <a href="{{ url('/login/google') }}" class="btn btn-danger btn-block">
+                        <a href="{{ route('oauth.redirect', 'google') }}" class="btn btn-danger btn-block">
                             <span class="fa fa-google"></span> Google
                         </a>
                     </div>
