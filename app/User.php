@@ -38,7 +38,8 @@ class User extends Authenticatable
      */
     protected $fillable = [
         'name',
-        'location',
+        'city',
+        'avatar',
         'email',
         'password',
     ];
@@ -55,6 +56,6 @@ class User extends Authenticatable
 
     public function getAvatarAttribute()
     {
-        return '//placehold.it/100x100';
+        return $this->attributes['avatar'] ?? 'https://www.gravatar.com/avatar/' . md5(strtolower(trim($this->email))) . '?d=retro&r=g&s=150';
     }
 }
