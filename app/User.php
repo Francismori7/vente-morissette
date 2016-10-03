@@ -6,13 +6,13 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 
 /**
- * App\User
+ * App\User.
  *
  * @property-read mixed $avatar
  * @property-read \Illuminate\Notifications\DatabaseNotificationCollection|\Illuminate\Notifications\DatabaseNotification[] $notifications
  * @property-read \Illuminate\Notifications\DatabaseNotificationCollection|\Illuminate\Notifications\DatabaseNotification[] $unreadNotifications
  * @mixin \Eloquent
- * @property integer $id
+ * @property int $id
  * @property string $name
  * @property string $email
  * @property string $password
@@ -56,6 +56,6 @@ class User extends Authenticatable
 
     public function getAvatarAttribute()
     {
-        return $this->attributes['avatar'] ?? 'https://www.gravatar.com/avatar/' . md5(strtolower(trim($this->email))) . '?d=retro&r=g&s=150';
+        return $this->attributes['avatar'] ?? 'https://www.gravatar.com/avatar/'.md5(strtolower(trim($this->email))).'?d=retro&r=g&s=150';
     }
 }

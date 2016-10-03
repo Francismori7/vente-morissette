@@ -22,5 +22,4 @@ class LayoutTest extends TestCase
     {
         $this->visit('/')->see('Panier')->seeElement('span.fa.fa-shopping-cart');
     }
-
 }

@@ -76,7 +76,7 @@ class StatisticsManager
      */
     public function toObject()
     {
-        return (object)$this->statistics;
+        return (object) $this->statistics;
     }
 
     /**

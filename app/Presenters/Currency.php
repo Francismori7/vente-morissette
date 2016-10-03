@@ -2,7 +2,6 @@
 
 namespace App\Presenters;
 
-
 class Currency
 {
     /**
@@ -13,10 +12,10 @@ class Currency
      */
     public static function from(int $amount)
     {
-        if($amount < 0) {
-            return substr(money_format("$%i", $amount / 100), 0, -5) . ")";
+        if ($amount < 0) {
+            return substr(money_format('$%i', $amount / 100), 0, -5).')';
         }
 
-        return rtrim(substr(money_format("$%i", $amount / 100), 0, -4));
+        return rtrim(substr(money_format('$%i', $amount / 100), 0, -4));
     }
 }
