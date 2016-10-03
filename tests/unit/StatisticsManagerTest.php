@@ -30,5 +30,4 @@ class StatisticsManagerTest extends TestCase
             'users' => 10,
         ], $statisticsManager());
     }
-
 }

@@ -55,7 +55,7 @@ class OAuthController extends Controller
      */
     protected function getRedirectionMethodName($provider)
     {
-        return 'handle' . ucfirst(camel_case($provider)) . 'ProviderRedirection';
+        return 'handle'.ucfirst(camel_case($provider)).'ProviderRedirection';
     }
 
     /**
@@ -90,7 +90,7 @@ class OAuthController extends Controller
      */
     protected function getCallbackMethodName($provider)
     {
-        return 'handle' . ucfirst(camel_case($provider)) . 'ProviderCallback';
+        return 'handle'.ucfirst(camel_case($provider)).'ProviderCallback';
     }
 
     /**
@@ -124,7 +124,7 @@ class OAuthController extends Controller
     {
         $abstractUser = Socialite::driver('google')->user();
 
-        if (!$user = $this->findUser($abstractUser)) {
+        if (! $user = $this->findUser($abstractUser)) {
             $user = $this->createUser($abstractUser);
         }
 
@@ -184,7 +184,7 @@ class OAuthController extends Controller
     {
         $abstractUser = Socialite::driver('facebook')->user();
 
-        if (!$user = $this->findUser($abstractUser)) {
+        if (! $user = $this->findUser($abstractUser)) {
             $user = $this->createUser($abstractUser);
         }
 

@@ -8,14 +8,14 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
 /**
- * App\Product
+ * App\Product.
  *
  * @property-read \Illuminate\Database\Eloquent\Collection|\App\Category[] $categories
  * @method static \Illuminate\Database\Query\Builder|\App\Product featured()
  * @mixin \Eloquent
- * @property integer $id
+ * @property int $id
  * @property string $name
- * @property integer $price
+ * @property int $price
  * @property string $description
  * @property \Carbon\Carbon $created_at
  * @property \Carbon\Carbon $updated_at
@@ -39,7 +39,7 @@ class Product extends Model
     ];
 
     protected $dates = [
-        'sold_at'
+        'sold_at',
     ];
 
     protected static function boot()
@@ -85,7 +85,8 @@ class Product extends Model
      *
      * @return bool
      */
-    public function isSold() {
+    public function isSold()
+    {
         return $this->sold_at !== null;
     }
 }

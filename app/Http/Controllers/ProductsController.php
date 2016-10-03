@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use App\Product;
 use Illuminate\Http\Request;
 
-use App\Http\Requests;
 
 class ProductsController extends Controller
 {
@@ -19,7 +18,7 @@ class ProductsController extends Controller
      */
     public function index(Request $request)
     {
-        $products = \Cache::remember("products.page{$request->query('page', 1)}", 5, function() {
+        $products = \Cache::remember("products.page{$request->query('page', 1)}", 5, function () {
             return Product::orderBy('created_at')->with('categories')->paginate(self::$perPage);
         });
 

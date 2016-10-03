@@ -50,7 +50,6 @@ class HomeTest extends TestCase
         $this->seeInElement('p.title#users', User::count());
     }
 
-
     protected function setUp()
     {
         parent::setUp();
@@ -59,5 +58,4 @@ class HomeTest extends TestCase
         factory(Category::class, 10)->create();
         factory(User::class, 10)->create();
     }
-
 }

@@ -6,12 +6,12 @@ use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
 
 /**
- * App\Category
+ * App\Category.
  *
  * @property-read \Illuminate\Database\Eloquent\Collection|\App\Product[] $products
  * @method static \Illuminate\Database\Query\Builder|\App\Category forHomepage()
  * @mixin \Eloquent
- * @property integer $id
+ * @property int $id
  * @property string $name
  * @property \Carbon\Carbon $created_at
  * @property \Carbon\Carbon $updated_at

@@ -16,10 +16,10 @@ class HomeController extends Controller
      */
     public function index(StatisticsManager $statisticsManager)
     {
-        $products = \Cache::remember('products.featured', 5, function() {
+        $products = \Cache::remember('products.featured', 5, function () {
             return Product::featured()->with('categories')->get();
         });
-        $categories = \Cache::remember('categories.homepage', 5, function() {
+        $categories = \Cache::remember('categories.homepage', 5, function () {
             return Category::forHomepage()->withCount('products')->get();
         });
 
