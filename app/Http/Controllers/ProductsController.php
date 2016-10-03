@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use App\Product;
 use Illuminate\Http\Request;
 
-
 class ProductsController extends Controller
 {
     protected static $perPage = 9;
