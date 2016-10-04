@@ -5096,17 +5096,19 @@ a.text-gray-dark:focus, a.text-gray-dark:hover {
 .card-block p:last-child {
   margin-bottom: 0; }
 
-.cart-dropdown-menu {
-  width: 100%; }
-  @media (min-width: 544px) {
-    .cart-dropdown-menu {
-      min-width: 300px; } }
-  @media (min-width: 768px) {
-    .cart-dropdown-menu {
-      min-width: 400px; } }
-  .cart-dropdown-menu .product .product-name {
-    -webkit-box-flex: 1;
-    flex: 1; }
+@media (min-width: 544px) {
+  .cart-dropdown-menu {
+    min-width: 300px; } }
+
+@media (min-width: 768px) {
+  .cart-dropdown-menu {
+    min-width: 400px;
+    right: 0;
+    left: auto; } }
+
+.cart-dropdown-menu .product .product-name {
+  -webkit-box-flex: 1;
+  flex: 1; }
 
 .list-group-flush .list-group-item {
   border-width: 1px 0;

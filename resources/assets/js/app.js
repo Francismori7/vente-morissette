@@ -16,12 +16,25 @@ require('./bootstrap');
 const app = new Vue({
     el: '#app',
 
-    props: ['user'],
+    data: {
+        'user': null
+    },
 
     mounted() {
-        Echo.channel('products');
+        //Echo.channel('products');
 
         this.$nextTick(() => {
+            this.prepareCartDropdown();
+            this.retrieveUser();
+        });
+    },
+
+    methods: {
+        retrieveUser() {
+            this.user = Laravel.user;
+        },
+
+        prepareCartDropdown() {
             $('li.dropdown.cart-dropdown > a').on('click', function (event) {
                 $(this).parent().toggleClass("open");
             });
@@ -31,6 +44,12 @@ const app = new Vue({
                     $('li.dropdown.cart-dropdown').removeClass('open');
                 }
             });
-        });
+        }
+    },
+
+    computed: {
+        userAvatar() {
+            return this.user ? this.user.avatar : '';
+        }
     }
 });

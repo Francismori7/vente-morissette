@@ -16,7 +16,7 @@ require('bootstrap');
  * and simple, leaving you to focus on building your next great project.
  */
 
-window.Vue = require('vue/dist/vue');
+window.Vue = require('vue');
 Vue.use(require('vue-resource'));
 
 /**
@@ -26,7 +26,7 @@ Vue.use(require('vue-resource'));
  */
 
 Vue.http.interceptors.push((request, next) => {
-    request.headers['X-CSRF-TOKEN'] = Laravel.csrfToken;
+    request.headers.set('X-CSRF-TOKEN', Laravel.csrfToken);
 
     next();
 });

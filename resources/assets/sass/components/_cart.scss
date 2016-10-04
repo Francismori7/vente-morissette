@@ -1,11 +1,14 @@
 .cart-dropdown-menu {
-  width: 100%;
-
   @include media-breakpoint-up(sm) {
     min-width: 300px;
   }
+
   @include media-breakpoint-up(md) {
     min-width: 400px;
+
+    // .dropdown-menu-right
+    right: 0;
+    left: auto;
   }
 
   .product {

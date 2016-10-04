@@ -25,11 +25,12 @@
     <script>
         window.Laravel = <?php echo json_encode([
             'csrfToken' => csrf_token(),
-        ]); ?>
+            'user' => $currentUser,
+        ]); ?>;
     </script>
 </head>
 <body>
-    <div id="app" v-bind:user="{{ $currentUser }}" class="m-b-3">
+    <div id="app" class="m-b-3" v-cloak>
         <nav class="navbar navbar-full navbar-dark m-b-2 bg-success">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">{{ config('app.name') }}</a>
@@ -61,9 +62,9 @@
                             <li class="dropdown nav-item pull-xs-none pull-md-left">
                                 <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown" role="button"
                                    aria-expanded="false">
-                                    <img src="{{ $currentUser->avatar }}" alt="{{ $currentUser->name }}"
+                                    <img :src="user.avatar" :alt="user.name"
                                          class="img-avatar img-avatar-navbar">
-                                    {{ $currentUser->name }} <span class="caret"></span>
+                                    @{{ user.name }} <span class="caret"></span>
                                 </a>
 
                                 <div class="dropdown-menu dropdown-menu-right" role="menu">
@@ -91,7 +92,7 @@
             </div>
         </nav>
 
-        <div v-cloak>
+        <div>
             @yield('content')
         </div>
 

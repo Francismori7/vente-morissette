@@ -51,7 +51,7 @@
             <div class="row cart-checkout">
                 <div class="p-r-1">
                     <a href="{{ url('/cart/checkout') }}" class="btn btn-primary"><span class="fa fa-dollar"></span>
-                        Réserver</a>
+                        Réserver<</a>
                 </div>
             </div>
         </div>
