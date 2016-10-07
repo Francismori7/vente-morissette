@@ -192,6 +192,7 @@ return [
         Laravel\Socialite\SocialiteServiceProvider::class,
         Laravel\Passport\PassportServiceProvider::class,
         Spatie\Fractal\FractalServiceProvider::class,
+        Lsrur\Inspector\InspectorServiceProvider::class,
 
         /*
          * Application Service Providers...
@@ -252,6 +253,7 @@ return [
 
         'Socialite' => Laravel\Socialite\Facades\Socialite::class,
         'Fractal' => Spatie\Fractal\FractalFacade::class,
+        'Inspector' => Lsrur\Inspector\Facade\Inspector::class,
 
     ],
 

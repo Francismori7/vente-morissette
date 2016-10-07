@@ -26,6 +26,7 @@ use Exception;
 use Illuminate\Auth\Access\AuthorizationException;
 use Illuminate\Auth\AuthenticationException;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
+use Inspector;
 
 class Handler extends ExceptionHandler
 {
@@ -65,6 +66,7 @@ class Handler extends ExceptionHandler
      */
     public function render($request, Exception $exception)
     {
+        Inspector::renderException($exception);
         $response = parent::render($request, $exception);
 
         if($exception instanceof AuthorizationException) {
