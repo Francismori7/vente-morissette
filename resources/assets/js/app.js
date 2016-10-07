@@ -12,6 +12,20 @@ require('./bootstrap');
  * the application, or feel free to tweak this setup for your needs.
  */
 
+Vue.component(
+    'passport-clients',
+    require('./components/passport/Clients.vue')
+);
+
+Vue.component(
+    'passport-authorized-clients',
+    require('./components/passport/AuthorizedClients.vue')
+);
+
+Vue.component(
+    'passport-personal-access-tokens',
+    require('./components/passport/PersonalAccessTokens.vue')
+);
 
 const app = new Vue({
     el: '#app',
@@ -22,10 +36,10 @@ const app = new Vue({
 
     mounted() {
         //Echo.channel('products');
+        this.retrieveUser();
 
         this.$nextTick(() => {
             this.prepareCartDropdown();
-            this.retrieveUser();
         });
     },
 
@@ -44,12 +58,6 @@ const app = new Vue({
                     $('li.dropdown.cart-dropdown').removeClass('open');
                 }
             });
-        }
-    },
-
-    computed: {
-        userAvatar() {
-            return this.user ? this.user.avatar : '';
         }
     }
 });

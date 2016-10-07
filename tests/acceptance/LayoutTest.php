@@ -20,13 +20,8 @@
  * OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
-use Illuminate\Foundation\Testing\DatabaseMigrations;
-use Illuminate\Foundation\Testing\DatabaseTransactions;
-
 class LayoutTest extends TestCase
 {
-    use DatabaseTransactions, DatabaseMigrations;
-
     /** @test */
     public function it_shows_the_logged_in_user()
     {
@@ -42,4 +37,15 @@ class LayoutTest extends TestCase
     {
         $this->visit('/')->see('Panier')->seeElement('span.fa.fa-shopping-cart');
     }
+
+    /** @test */
+    public function it_shows_admin_links_for_admins()
+    {
+        $this->visit('/')->dontSee('Administration');
+
+        $this->actingAs(factory(App\User::class)->create(['is_admin' => true]));
+
+        $this->visit('/')->see('Administration');
+    }
+
 }

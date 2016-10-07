@@ -24,6 +24,7 @@ use App\Presenters\Currency;
 
 class CurrencyTest extends TestCase
 {
+
     /** @test */
     public function it_shows_the_right_price()
     {

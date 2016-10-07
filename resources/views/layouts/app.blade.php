@@ -23,9 +23,16 @@
 
     <!-- Scripts -->
     <script>
-        window.Laravel = <?php echo json_encode([
+        window.Laravel = <?php
+        use App\Transformers\UserTransformer;
+        $currentUser = auth()->user();
+
+        echo json_encode([
             'csrfToken' => csrf_token(),
-            'user' => $currentUser,
+            'user' => $currentUser ? fractal()
+                ->item($currentUser)
+                ->transformWith(new UserTransformer)
+                ->toArray()['data'] : null,
         ]); ?>;
     </script>
 </head>
@@ -62,9 +69,9 @@
                             <li class="dropdown nav-item pull-xs-none pull-md-left">
                                 <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown" role="button"
                                    aria-expanded="false">
-                                    <img :src="user.avatar" :alt="user.name"
+                                    <img src="{{ $currentUser->avatar }}" alt="{{ $currentUser->name }}"
                                          class="img-avatar img-avatar-navbar">
-                                    @{{ user.name }} <span class="caret"></span>
+                                    {{ $currentUser->name }} <span class="caret"></span>
                                 </a>
 
                                 <div class="dropdown-menu dropdown-menu-right" role="menu">
@@ -72,6 +79,12 @@
                                         <span class="fa fa-user fa-fw"></span>
                                         Panneau de contrôle
                                     </a>
+                                    @can('admin')
+                                        <a class="dropdown-item" href="/admin">
+                                            <span class="fa fa-gear fa-fw"></span>
+                                            Administration
+                                        </a>
+                                    @endcan
                                     <div class="dropdown-divider"></div>
                                     <a href="{{ url('/logout') }}"
                                        class="dropdown-item"

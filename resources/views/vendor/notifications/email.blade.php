@@ -88,9 +88,9 @@ $style = [
                                                 {{ $greeting }}
                                             @else
                                                 @if ($level == 'error')
-                                                    Whoops!
+                                                    Woups!
                                                 @else
-                                                    Hello!
+                                                    Bonjour!
                                                 @endif
                                             @endif
                                         </h1>
@@ -149,8 +149,9 @@ $style = [
                                                 <tr>
                                                     <td style="{{ $fontFamily }}">
                                                         <p style="{{ $style['paragraph-sub'] }}">
-                                                            If you’re having trouble clicking the "{{ $actionText }}" button,
-                                                            copy and paste the URL below into your web browser:
+                                                            Si vous avez de la difficulter à cliquer le bouton
+                                                            "{{ $actionText }}", copiez et collez le lien ci-dessous
+                                                            dans votre navigateur:
                                                         </p>
 
                                                         <p style="{{ $style['paragraph-sub'] }}">
@@ -177,7 +178,7 @@ $style = [
                                         <p style="{{ $style['paragraph-sub'] }}">
                                             &copy; {{ date('Y') }}
                                             <a style="{{ $style['anchor'] }}" href="{{ url('/') }}" target="_blank">{{ config('app.name') }}</a>.
-                                            All rights reserved.
+                                            Tous droits réservés.
                                         </p>
                                     </td>
                                 </tr>

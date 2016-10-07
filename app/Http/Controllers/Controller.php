@@ -32,17 +32,4 @@ use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 class Controller extends BaseController
 {
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
-
-    private $currentUser;
-
-    public function __construct()
-    {
-        $this->middleware(function ($request, $next) {
-            $this->currentUser = auth()->user();
-
-            view()->share('currentUser', $this->currentUser);
-
-            return $next($request);
-        });
-    }
 }

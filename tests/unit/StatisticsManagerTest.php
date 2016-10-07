@@ -23,13 +23,9 @@
 use App\Category;
 use App\Product;
 use App\User;
-use Illuminate\Foundation\Testing\DatabaseMigrations;
-use Illuminate\Foundation\Testing\DatabaseTransactions;
 
 class StatisticsManagerTest extends TestCase
 {
-    use DatabaseTransactions, DatabaseMigrations;
-
     public function setUp()
     {
         parent::setUp();
@@ -44,7 +40,7 @@ class StatisticsManagerTest extends TestCase
     {
         $statisticsManager = $this->app->make(\App\Services\StatisticsManager::class);
 
-        $this->assertEquals((object) [
+        $this->assertEquals((object)[
             'categories' => 15,
             'products' => 5,
             'users' => 10,

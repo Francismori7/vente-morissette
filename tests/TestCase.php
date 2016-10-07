@@ -20,8 +20,13 @@
  * OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
+use Illuminate\Foundation\Testing\DatabaseMigrations;
+use Illuminate\Foundation\Testing\DatabaseTransactions;
+
 abstract class TestCase extends Illuminate\Foundation\Testing\TestCase
 {
+    use DatabaseMigrations, DatabaseTransactions;
+
     /**
      * The base URL to use while testing the application.
      *
@@ -41,5 +46,12 @@ abstract class TestCase extends Illuminate\Foundation\Testing\TestCase
         $app->make(Illuminate\Contracts\Console\Kernel::class)->bootstrap();
 
         return $app;
+    }
+
+    public function setUp()
+    {
+        parent::setUp();
+
+        $this->artisan('passport:client', ['--personal' => true, '--no-interaction' => true]);
     }
 }

@@ -23,13 +23,9 @@
 use App\Category;
 use App\Product;
 use App\Scopes\UnsoldProductScope;
-use Illuminate\Foundation\Testing\DatabaseMigrations;
-use Illuminate\Foundation\Testing\DatabaseTransactions;
 
 class ProductsTest extends TestCase
 {
-    use DatabaseTransactions, DatabaseMigrations;
-
     public function setUp()
     {
         parent::setUp();

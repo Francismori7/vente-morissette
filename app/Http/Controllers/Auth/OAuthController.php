@@ -42,8 +42,6 @@ class OAuthController extends Controller
      */
     public function __construct()
     {
-        parent::__construct();
-
         $this->middleware('guest');
     }
 

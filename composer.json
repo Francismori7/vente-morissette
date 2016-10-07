@@ -12,7 +12,8 @@
         "barryvdh/laravel-ide-helper": "^2.2",
         "doctrine/dbal": "^2.5",
         "laravel/socialite": "^2.0",
-        "laravel/passport": "^1.0"
+        "laravel/passport": "^1.0",
+        "spatie/laravel-fractal": "^2.0"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",
@@ -34,7 +35,8 @@
     },
     "autoload-dev": {
         "classmap": [
-            "tests/TestCase.php"
+            "tests/TestCase.php",
+            "tests/ApiTestCase.php"
         ]
     },
     "scripts": {

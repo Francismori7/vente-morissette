@@ -23,13 +23,9 @@
 use App\Category;
 use App\Product;
 use App\User;
-use Illuminate\Foundation\Testing\DatabaseMigrations;
-use Illuminate\Foundation\Testing\DatabaseTransactions;
 
 class HomeTest extends TestCase
 {
-    use DatabaseTransactions, DatabaseMigrations;
-
     /** @test */
     public function it_shows_featured_products()
     {
@@ -70,7 +66,7 @@ class HomeTest extends TestCase
         $this->seeInElement('p.title#users', User::count());
     }
 
-    protected function setUp()
+    public function setUp()
     {
         parent::setUp();
 

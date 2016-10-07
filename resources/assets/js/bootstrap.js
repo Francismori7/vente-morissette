@@ -1,4 +1,3 @@
-
 window._ = require('lodash');
 
 /**
@@ -30,16 +29,33 @@ Vue.http.interceptors.push((request, next) => {
 
     next();
 });
-
 /**
  * Echo exposes an expressive API for subscribing to channels and listening
  * for events that are broadcast by Laravel. Echo and event broadcasting
  * allows your team to easily build robust real-time web applications.
  */
+import Echo from "laravel-echo";
 
-import Echo from "laravel-echo"
 
 window.Echo = new Echo({
     broadcaster: 'pusher',
     key: '74d2a5e78ffe9bd4d684'
+});
+
+Vue.http.interceptors.push((request, next ) => {
+    next((response) => {
+        if( 'Content-Type' in response.headers
+            && response.headers['Content-Type'] == 'application/json' ){
+            if( typeof response.data != 'object' ){
+                response.data = JSON.parse( response.data );
+            }
+        }
+
+        if( 'content-type' in response.headers
+            && response.headers['content-type'] == 'application/json' ){
+            if( typeof response.data != 'object' ){
+                response.data = JSON.parse( response.data );
+            }
+        }
+    });
 });

@@ -22,7 +22,11 @@
 
 namespace App\Providers;
 
+use App\Policies\UserPolicy;
+use App\User;
+use Gate;
 use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
+use Laravel\Passport\Client;
 use Laravel\Passport\Passport;
 
 class AuthServiceProvider extends ServiceProvider
@@ -33,7 +37,7 @@ class AuthServiceProvider extends ServiceProvider
      * @var array
      */
     protected $policies = [
-        'App\Model' => 'App\Policies\ModelPolicy',
+        User::class => UserPolicy::class,
     ];
 
     /**
@@ -45,6 +49,16 @@ class AuthServiceProvider extends ServiceProvider
     {
         $this->registerPolicies();
 
+        Gate::define('admin', function (User $user) {
+            return $user->is_admin;
+        });
+
         Passport::routes();
+
+        Passport::tokensCan([
+            'view-user' => 'Voir votre compte utilisateur',
+            'edit-user' => 'Modifier votre compte utilisateur',
+            'delete-user' => 'Supprimer votre compte utilisateur',
+        ]);
     }
 }

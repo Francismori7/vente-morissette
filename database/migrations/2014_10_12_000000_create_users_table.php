@@ -40,8 +40,10 @@ class CreateUsersTable extends Migration
             $table->text('avatar')->nullable();
             $table->string('email')->unique();
             $table->string('password');
+            $table->boolean('is_admin')->default(false);
             $table->rememberToken();
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

@@ -22,13 +22,9 @@
 
 use App\Category;
 use App\Product;
-use Illuminate\Foundation\Testing\DatabaseMigrations;
-use Illuminate\Foundation\Testing\DatabaseTransactions;
 
 class CategoriesTest extends TestCase
 {
-    use DatabaseTransactions, DatabaseMigrations;
-
     public function setUp()
     {
         parent::setUp();

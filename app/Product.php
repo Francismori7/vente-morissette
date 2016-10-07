@@ -47,6 +47,8 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  * @method static \Illuminate\Database\Query\Builder|\App\Product whereCreatedAt($value)
  * @method static \Illuminate\Database\Query\Builder|\App\Product whereUpdatedAt($value)
  * @method static \Illuminate\Database\Query\Builder|\App\Product whereDeletedAt($value)
+ * @property \Carbon\Carbon $sold_at
+ * @method static \Illuminate\Database\Query\Builder|\App\Product whereSoldAt($value)
  */
 class Product extends Model
 {
