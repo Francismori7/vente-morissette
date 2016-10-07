@@ -12,40 +12,40 @@ require('./bootstrap');
  * the application, or feel free to tweak this setup for your needs.
  */
 
-Vue.component(
-    'passport-clients',
-    require('./components/passport/Clients.vue')
-);
+Vue.component('passport-clients', require('./components/passport/Clients.vue'));
 
-Vue.component(
-    'passport-authorized-clients',
-    require('./components/passport/AuthorizedClients.vue')
-);
+Vue.component('passport-authorized-clients', require('./components/passport/AuthorizedClients.vue'));
 
-Vue.component(
-    'passport-personal-access-tokens',
-    require('./components/passport/PersonalAccessTokens.vue')
-);
+Vue.component('passport-personal-access-tokens', require('./components/passport/PersonalAccessTokens.vue'));
+
+Vue.component('stats', require('./components/Stats.vue'));
 
 const app = new Vue({
     el: '#app',
 
     data: {
-        'user': null
+        'user': null,
+        'categoriesCount': 0
     },
 
     mounted() {
         //Echo.channel('products');
-        this.retrieveUser();
 
         this.$nextTick(() => {
+            this.retrieveUser();
             this.prepareCartDropdown();
         });
+
+        eventHub.$on('stats-received', this.handleStatsReceived);
     },
 
     methods: {
         retrieveUser() {
             this.user = Laravel.user;
+        },
+
+        handleStatsReceived(stats) {
+            this.categoriesCount = stats.categories;
         },
 
         prepareCartDropdown() {

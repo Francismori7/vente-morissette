@@ -18,6 +18,8 @@ require('bootstrap');
 window.Vue = require('vue');
 Vue.use(require('vue-resource'));
 
+window.eventHub = new Vue();
+
 /**
  * We'll register a HTTP interceptor to attach the "CSRF" header to each of
  * the outgoing requests issued by this application. The CSRF middleware

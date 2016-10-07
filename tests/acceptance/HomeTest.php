@@ -61,9 +61,7 @@ class HomeTest extends TestCase
     {
         $this->visit('/');
 
-        $this->seeInElement('p.title#categories', Category::count());
-        $this->seeInElement('p.title#products', Product::count());
-        $this->seeInElement('p.title#users', User::count());
+        $this->seeElement('stats');
     }
 
     public function setUp()

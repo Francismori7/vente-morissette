@@ -64,34 +64,14 @@
                             <div class="list-group-item"><em>Aucune catégorie pour le moment...</em></div>
                         @endforelse
 
-                        @if($stats->categories > \App\Category::countOnHomepage())
-                            <a href="{{ route('categories.index') }}"
-                               class="list-group-item list-group-item-action d-f">
-                                <em>Plus de catégories...</em>
-                            </a>
-                        @endif
+                        <a href="{{ route('categories.index') }}"
+                           v-if="categoriesCount > {{ \App\Category::countOnHomepage() }}"
+                           class="list-group-item list-group-item-action d-f">
+                            <em>Plus de catégories...</em>
+                        </a>
                     </div>
                 </div>
-                <div class="card">
-                    <div class="card-header"><a href="{{ route('statistics.index') }}">Statistiques</a></div>
-                    <div class="card-block">
-                        <div class="stats">
-                            <div class="stats-item">
-                                <p class="heading"><a href="{{ route('categories.index') }}#categories">Catégories</a>
-                                </p>
-                                <p class="title" id="categories">{{ $stats->categories }}</p>
-                            </div>
-                            <div class="stats-item">
-                                <p class="heading"><a href="{{ route('categories.index') }}#products">Produits</a></p>
-                                <p class="title" id="products">{{ $stats->products }}</p>
-                            </div>
-                            <div class="stats-item">
-                                <p class="heading"><a href="{{ route('categories.index') }}#users">Usagers</a></p>
-                                <p class="title" id="users">{{ $stats->users }}</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                <stats></stats>
                 <div class="card">
                     <div class="card-header">Paiements</div>
                     <div class="card-block">
@@ -103,13 +83,6 @@
                         </div>
                     </div>
                 </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-xs">
-                <passport-clients></passport-clients>
-                <passport-authorized-clients></passport-authorized-clients>
-                <passport-personal-access-tokens></passport-personal-access-tokens>
             </div>
         </div>
     </div>
