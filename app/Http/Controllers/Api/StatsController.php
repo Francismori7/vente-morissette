@@ -20,14 +20,19 @@
  * OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
-Auth::routes();
-Route::get('login/{provider}', ['as' => 'oauth.redirect', 'uses' => 'Auth\OAuthController@handleProviderRequest']);
-Route::get('login/{provider}/callback',
-    ['as' => 'oauth.callback', 'uses' => 'Auth\OAuthController@handleProviderCallback']);
+namespace App\Http\Controllers\Api;
 
-Route::get('/', 'HomeController@index')->name('home');
-Route::get('search', 'HomeController@search')->name('search');
+use App\Http\Controllers\Controller;
+use App\Services\StatisticsManager;
+use App\Transformers\StatsTransformer;
 
-Route::resource('products', 'ProductsController');
-Route::resource('categories', 'CategoriesController');
-Route::resource('statistics', 'StatisticsController');
+class StatsController extends Controller
+{
+    public function index(StatisticsManager $statisticsManager)
+    {
+        return fractal()
+            ->item($statisticsManager())
+            ->transformWith(new StatsTransformer)
+            ->toArray();
+    }
+}

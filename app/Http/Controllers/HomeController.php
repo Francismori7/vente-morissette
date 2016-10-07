@@ -43,9 +43,7 @@ class HomeController extends Controller
             return Category::forHomepage()->withCount('products')->get();
         });
 
-        $stats = $statisticsManager();
-
-        return view('home', compact('products', 'categories', 'stats'));
+        return view('home', compact('products', 'categories'));
     }
 
     /**

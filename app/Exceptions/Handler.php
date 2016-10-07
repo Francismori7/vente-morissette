@@ -66,7 +66,6 @@ class Handler extends ExceptionHandler
      */
     public function render($request, Exception $exception)
     {
-        Inspector::renderException($exception);
         $response = parent::render($request, $exception);
 
         if ($exception instanceof AuthorizationException) {

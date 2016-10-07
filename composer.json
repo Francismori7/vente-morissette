@@ -13,8 +13,7 @@
         "doctrine/dbal": "^2.5",
         "laravel/socialite": "^2.0",
         "laravel/passport": "^1.0",
-        "spatie/laravel-fractal": "^2.0",
-        "lsrur/inspector": "^1.0"
+        "spatie/laravel-fractal": "^2.0"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",

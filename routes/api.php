@@ -20,4 +20,6 @@
  * OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
+Route::resource('stats', 'Api\StatsController', ['only' => ['index']]);
+
 Route::resource('users', 'Api\UserController', ['except' => ['create', 'edit']]);

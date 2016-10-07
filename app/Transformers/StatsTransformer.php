@@ -20,14 +20,25 @@
  * OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
-Auth::routes();
-Route::get('login/{provider}', ['as' => 'oauth.redirect', 'uses' => 'Auth\OAuthController@handleProviderRequest']);
-Route::get('login/{provider}/callback',
-    ['as' => 'oauth.callback', 'uses' => 'Auth\OAuthController@handleProviderCallback']);
+namespace App\Transformers;
 
-Route::get('/', 'HomeController@index')->name('home');
-Route::get('search', 'HomeController@search')->name('search');
+use League\Fractal\TransformerAbstract;
+use stdClass;
 
-Route::resource('products', 'ProductsController');
-Route::resource('categories', 'CategoriesController');
-Route::resource('statistics', 'StatisticsController');
+class StatsTransformer extends TransformerAbstract
+{
+    /**
+     * Transform a stats class into an API response.
+     *
+     * @param stdClass $stats
+     * @return array
+     */
+    public function transform(stdClass $stats)
+    {
+        return [
+            'products' => (int)$stats->products,
+            'categories' => (int)$stats->categories,
+            'users' => (int)$stats->users,
+        ];
+    }
+}
