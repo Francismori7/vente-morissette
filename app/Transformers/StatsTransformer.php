@@ -36,9 +36,9 @@ class StatsTransformer extends TransformerAbstract
     public function transform(stdClass $stats)
     {
         return [
-            'products' => (int)$stats->products,
-            'categories' => (int)$stats->categories,
-            'users' => (int)$stats->users,
+            'products' => (int) $stats->products,
+            'categories' => (int) $stats->categories,
+            'users' => (int) $stats->users,
         ];
     }
 }
