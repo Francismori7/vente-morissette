@@ -25,7 +25,8 @@
     <script>
         window.Laravel = <?php
         use App\Transformers\UserTransformer;
-        $currentUser = auth()->user();
+
+$currentUser = auth()->user();
 
         echo json_encode([
             'csrfToken' => csrf_token(),

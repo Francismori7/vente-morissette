@@ -1,6 +1,26 @@
-<?php 
+<?php
 
-return array(
+/*
+ * Copyright (c) 2016 Mori7 Technologie inc.
+ *
+ * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and
+ * associated documentation files (the "Software"), to deal in the Software without restriction, including
+ * without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ * copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to
+ * the following conditions:
+ *
+ * The above copyright notice and this permission notice shall be included in all copies or substantial
+ * portions of the Software.
+ *
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED,
+ * INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A
+ * PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT
+ * HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF
+ * CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE
+ * OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+ */
+
+return [
 
     /*
     |--------------------------------------------------------------------------
@@ -26,9 +46,9 @@ return array(
 
     'include_helpers' => false,
 
-    'helper_files' => array(
+    'helper_files' => [
         base_path().'/vendor/laravel/framework/src/Illuminate/Support/helpers.php',
-    ),
+    ],
 
     /*
     |--------------------------------------------------------------------------
@@ -40,9 +60,9 @@ return array(
     |
     */
 
-    'model_locations' => array(
+    'model_locations' => [
         'app',
-    ),
+    ],
 
 
     /*
@@ -54,13 +74,13 @@ return array(
     |
     */
 
-    'extra' => array(
-        'Eloquent' => array('Illuminate\Database\Eloquent\Builder', 'Illuminate\Database\Query\Builder'),
-        'Session' => array('Illuminate\Session\Store'),
-    ),
+    'extra' => [
+        'Eloquent' => ['Illuminate\Database\Eloquent\Builder', 'Illuminate\Database\Query\Builder'],
+        'Session' => ['Illuminate\Session\Store'],
+    ],
 
-    'magic' => array(
-        'Log' => array(
+    'magic' => [
+        'Log' => [
             'debug'     => 'Monolog\Logger::addDebug',
             'info'      => 'Monolog\Logger::addInfo',
             'notice'    => 'Monolog\Logger::addNotice',
@@ -69,9 +89,9 @@ return array(
             'critical'  => 'Monolog\Logger::addCritical',
             'alert'     => 'Monolog\Logger::addAlert',
             'emergency' => 'Monolog\Logger::addEmergency',
-        )
-    ),
-    
+        ],
+    ],
+
     /*
     |--------------------------------------------------------------------------
     | Interface implementations
@@ -81,10 +101,10 @@ return array(
     | are detected by the helpers, others can be listed below.
     |
     */
-    
-    'interfaces' => array(
 
-    ),
+    'interfaces' => [
+
+    ],
 
     /*
     |--------------------------------------------------------------------------
@@ -112,9 +132,9 @@ return array(
     |  ),
     |
     */
-    'custom_db_types' => array(
+    'custom_db_types' => [
 
-    ),
+    ],
 
     /*
      |--------------------------------------------------------------------------
@@ -142,4 +162,4 @@ return array(
      */
     'model_camel_case_properties' => false,
 
-);
+];

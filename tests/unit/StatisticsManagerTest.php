@@ -40,7 +40,7 @@ class StatisticsManagerTest extends TestCase
     {
         $statisticsManager = $this->app->make(\App\Services\StatisticsManager::class);
 
-        $this->assertEquals((object)[
+        $this->assertEquals((object) [
             'categories' => 15,
             'products' => 5,
             'users' => 10,

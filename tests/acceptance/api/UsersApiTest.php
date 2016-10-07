@@ -1,5 +1,25 @@
 <?php
 
+/*
+ * Copyright (c) 2016 Mori7 Technologie inc.
+ *
+ * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and
+ * associated documentation files (the "Software"), to deal in the Software without restriction, including
+ * without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ * copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to
+ * the following conditions:
+ *
+ * The above copyright notice and this permission notice shall be included in all copies or substantial
+ * portions of the Software.
+ *
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED,
+ * INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A
+ * PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT
+ * HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF
+ * CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE
+ * OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+ */
+
 use App\User;
 
 class UsersApiTest extends ApiTestCase
@@ -43,22 +63,22 @@ class UsersApiTest extends ApiTestCase
 
         $this->ajax('GET', '/api/users/2')
             ->seeJson([
-                'error' => 'Vous ne pouvez pas voir un utilisateur autre que vous-même.'
+                'error' => 'Vous ne pouvez pas voir un utilisateur autre que vous-même.',
             ]);
         $this->ajax('GET', '/api/users/1')
             ->seeJsonStructure([
-                'data' => []
+                'data' => [],
             ]);
 
         $this->actingAs($adminUser, 'api');
 
         $this->ajax('GET', '/api/users/1')
             ->seeJsonStructure([
-                'data' => []
+                'data' => [],
             ]);
         $this->ajax('GET', '/api/users/2')
             ->seeJsonStructure([
-                'data' => []
+                'data' => [],
             ]);
     }
 
@@ -127,7 +147,7 @@ class UsersApiTest extends ApiTestCase
 
         $this->ajax('POST', '/api/users', $userData)
             ->seeJsonStructure([
-                'data' => []
+                'data' => [],
             ])->seeJsonSubset([
                 'meta' => [
                     'success' => true,
@@ -155,7 +175,7 @@ class UsersApiTest extends ApiTestCase
             ]);
         $this->ajax('DELETE', '/api/users/1')
             ->seeJsonStructure([
-                'data' => []
+                'data' => [],
             ])
             ->seeJsonSubset([
                 'meta' => [
@@ -168,7 +188,7 @@ class UsersApiTest extends ApiTestCase
 
         $this->ajax('DELETE', '/api/users/3')
             ->seeJsonStructure([
-                'data' => []
+                'data' => [],
             ])
             ->seeJsonSubset([
                 'meta' => [
@@ -177,5 +197,4 @@ class UsersApiTest extends ApiTestCase
                 ],
             ]);
     }
-
 }

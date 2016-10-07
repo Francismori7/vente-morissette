@@ -69,7 +69,7 @@ class Handler extends ExceptionHandler
         Inspector::renderException($exception);
         $response = parent::render($request, $exception);
 
-        if($exception instanceof AuthorizationException) {
+        if ($exception instanceof AuthorizationException) {
             return $this->unauthorized($request, $exception);
         }
 
