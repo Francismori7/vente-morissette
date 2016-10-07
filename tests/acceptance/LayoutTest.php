@@ -47,5 +47,4 @@ class LayoutTest extends TestCase
 
         $this->visit('/')->see('Administration');
     }
-
 }

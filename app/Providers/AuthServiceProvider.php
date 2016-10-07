@@ -26,7 +26,6 @@ use App\Policies\UserPolicy;
 use App\User;
 use Gate;
 use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
-use Laravel\Passport\Client;
 use Laravel\Passport\Passport;
 
 class AuthServiceProvider extends ServiceProvider

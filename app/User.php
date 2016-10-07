@@ -55,7 +55,7 @@ use Laravel\Passport\HasApiTokens;
  * @property-read \Illuminate\Database\Eloquent\Collection|\Laravel\Passport\Token[] $tokens
  * @method static \Illuminate\Database\Query\Builder|\App\User whereCity($value)
  * @method static \Illuminate\Database\Query\Builder|\App\User whereAvatar($value)
- * @property boolean $is_admin
+ * @property bool $is_admin
  * @method static \Illuminate\Database\Query\Builder|\App\User whereIsAdmin($value)
  */
 class User extends Authenticatable
