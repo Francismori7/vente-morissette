@@ -1,5 +1,5 @@
 <template>
-    <div class="card">
+    <div class="card" v-if="stats">
         <div class="card-header"><a href="/stats">Statistiques</a></div>
         <div class="card-block">
             <div class="stats">
@@ -34,11 +34,7 @@
     export default {
         data() {
             return {
-                stats: {
-                    categories: null,
-                    products: null,
-                    users: null
-                }
+                stats: null
             }
         },
         mounted() {
