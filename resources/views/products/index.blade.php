@@ -1,10 +1,14 @@
 @extends('layouts.app')
 
-@section('title', 'Produits - Page ' . Request::query('page', 1))
+@section('title', 'Produits - Page ' . Request::query('shownPage', 1))
 
 @section('content')
     <div class="container">
         <h1 class="page-header">Liste des produits</h1>
+
+        <products></products>
+
+        {{--
         <div class="row">
             <div class="col-xs">
                 @foreach($products->chunk(3) as $chunk)
@@ -21,5 +25,6 @@
                 {{ $products->links() }}
             </div>
         </div>
+        --}}
     </div>
 @endsection

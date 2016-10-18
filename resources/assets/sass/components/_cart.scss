@@ -5,6 +5,7 @@
 
   @include media-breakpoint-up(md) {
     min-width: 400px;
+    max-width: 100%;
 
     // .dropdown-menu-right
     right: 0;
@@ -18,7 +19,7 @@
     .product-name {
       flex: 1;
 
-      @extend .p-r-1;
+      @extend .pr-1;
     }
   }
 

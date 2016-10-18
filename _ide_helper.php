@@ -3748,7 +3748,7 @@ namespace {
          * @throws \InvalidArgumentException
          * @static 
          */
-        public static function paginate($perPage = null, $columns = array(), $pageName = 'page', $page = null){
+        public static function paginate($perPage = null, $columns = array(), $pageName = 'shownPage', $page = null){
             return \Illuminate\Database\Eloquent\Builder::paginate($perPage, $columns, $pageName, $page);
         }
         
@@ -3762,7 +3762,7 @@ namespace {
          * @return \Illuminate\Contracts\Pagination\Paginator 
          * @static 
          */
-        public static function simplePaginate($perPage = null, $columns = array(), $pageName = 'page', $page = null){
+        public static function simplePaginate($perPage = null, $columns = array(), $pageName = 'shownPage', $page = null){
             return \Illuminate\Database\Eloquent\Builder::simplePaginate($perPage, $columns, $pageName, $page);
         }
         
@@ -4808,7 +4808,7 @@ namespace {
         }
         
         /**
-         * Set the limit and offset for a given page.
+         * Set the limit and offset for a given shownPage.
          *
          * @param int $page
          * @param int $perPage
@@ -4820,7 +4820,7 @@ namespace {
         }
         
         /**
-         * Constrain the query to the next "page" of results after a given ID.
+         * Constrain the query to the next "shownPage" of results after a given ID.
          *
          * @param int $perPage
          * @param int $lastId
@@ -8436,7 +8436,7 @@ namespace {
          * Suppose that an index.php file instantiates this request object:
          * 
          *  * http://localhost/index.php         returns an empty string
-         *  * http://localhost/index.php/page    returns an empty string
+         *  * http://localhost/index.php/shownPage    returns an empty string
          *  * http://localhost/web/index.php     returns '/web'
          *  * http://localhost/we%20b/index.php  returns '/we%20b'
          *

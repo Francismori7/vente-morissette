@@ -1,4 +1,4 @@
-<li class="dropdown cart-dropdown nav-item pull-xs-none pull-md-left">
+<li class="dropdown cart-dropdown nav-item float-xs-none float-md-left">
     <a href="#" class="dropdown-toggle nav-link">
         <span class="fa fa-shopping-cart"></span>
     </a>
@@ -43,15 +43,17 @@
                 <div>
                     <a href="{{ url('/cart') }}" class="btn btn-link">Voir le panier</a>
                 </div>
-                <div class="p-r-1">
+                <div class="pr-1">
                     <span class="tag tag-info">{{ currency(1398) }}</span>
                 </div>
             </div>
 
             <div class="row cart-checkout">
-                <div class="p-r-1">
-                    <a href="{{ url('/cart/checkout') }}" class="btn btn-primary"><span class="fa fa-dollar"></span>
-                        Réserver<</a>
+                <div class="pr-1">
+                    <a href="{{ url('/cart/checkout') }}" class="btn btn-primary">
+                        <span class="fa fa-dollar"></span>
+                        Réserver
+                    </a>
                 </div>
             </div>
         </div>

@@ -38,36 +38,36 @@ $currentUser = auth()->user();
     </script>
 </head>
 <body>
-    <div id="app" class="m-b-3" v-cloak>
-        <nav class="navbar navbar-full navbar-dark m-b-2 bg-success">
+    <div id="app" class="mb-3" v-cloak>
+        <nav class="navbar navbar-full navbar-dark mb-1 bg-success">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">{{ config('app.name') }}</a>
-                <button class="navbar-toggler hidden-md-up pull-xs-right" type="button" data-toggle="collapse"
+                <button class="navbar-toggler hidden-md-up float-xs-right" type="button" data-toggle="collapse"
                         data-target="#collapsenav">
                     &#9776;
                 </button>
-                <div class="collapse navbar-toggleable-sm pull-xs-left pull-md-none" id="collapsenav">
+                <div class="collapse navbar-toggleable-sm float-xs-left float-md-none" id="collapsenav">
                     <ul class="nav navbar-nav">
-                        <li class="nav-item pull-xs-none pull-md-left">
+                        <li class="nav-item float-xs-none float-md-left">
                             <a class="nav-link" href="{{ route('home') }}">Accueil</a>
                         </li>
-                        <li class="nav-item pull-xs-none pull-md-left">
+                        <li class="nav-item float-xs-none float-md-left">
                             <a class="nav-link" href="{{ route('products.index') }}">Produits</a>
                         </li>
                     </ul>
-                    <ul class="nav navbar-nav pull-xs-right">
+                    <ul class="nav navbar-nav float-xs-right">
                     @include('layouts._cart')
 
                     <!-- Authentication Links -->
                         @if (!$currentUser)
-                            <li class="nav-item pull-xs-none pull-md-left">
+                            <li class="nav-item float-xs-none float-md-left">
                                 <a class="nav-link" href="{{ url('/login') }}">Connexion</a>
                             </li>
-                            <li class="nav-item pull-xs-none pull-md-left">
+                            <li class="nav-item float-xs-none float-md-left">
                                 <a class="nav-link" href="{{ url('/register') }}">S'enregistrer</a>
                             </li>
                         @else
-                            <li class="dropdown nav-item pull-xs-none pull-md-left">
+                            <li class="dropdown nav-item float-xs-none float-md-left">
                                 <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown" role="button"
                                    aria-expanded="false">
                                     <img src="{{ $currentUser->avatar }}" alt="{{ $currentUser->name }}"

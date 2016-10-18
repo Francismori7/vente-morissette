@@ -8,7 +8,7 @@ require('./bootstrap');
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
- * the body of the page. From here, you may begin adding components to
+ * the body of the shownPage. From here, you may begin adding components to
  * the application, or feel free to tweak this setup for your needs.
  */
 
@@ -19,6 +19,7 @@ Vue.component('passport-authorized-clients', require('./components/passport/Auth
 Vue.component('passport-personal-access-tokens', require('./components/passport/PersonalAccessTokens.vue'));
 
 Vue.component('stats', require('./components/Stats.vue'));
+Vue.component('products', require('./components/Products.vue'));
 
 const app = new Vue({
     el: '#app',

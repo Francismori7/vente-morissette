@@ -20,6 +20,49 @@
  * OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
-Route::resource('products', 'Api\ProductsController', ['except' => ['create', 'edit']]);
-Route::resource('stats', 'Api\StatsController', ['only' => ['index']]);
-Route::resource('users', 'Api\UserController', ['except' => ['create', 'edit']]);
+namespace App\Transformers;
+
+use App\Category;
+use League\Fractal\TransformerAbstract;
+
+class CategoryTransformer extends TransformerAbstract
+{
+    /**
+     * List of resources possible to include
+     *
+     * @var array
+     */
+    protected $availableIncludes = [
+        'products'
+    ];
+
+    /**
+     * Transform a user into an API response.
+     *
+     * @param Category $category
+     * @return array
+     */
+    public function transform(Category $category)
+    {
+        return [
+            'id' => $category->id,
+            'name' => $category->name,
+            'products_count' => $category->products_count ?? $category->products()->count(),
+            'created_at' => $category->created_at,
+            'updated_at' => $category->updated_at,
+        ];
+    }
+
+    /**
+     * Include Categories.
+     *
+     * @param Category $category
+     * @return \League\Fractal\Resource\Collection
+     */
+    public function includeProducts(Category $category)
+    {
+        $products = $category->products;
+
+        return $this->collection($products, new ProductTransformer);
+    }
+}
