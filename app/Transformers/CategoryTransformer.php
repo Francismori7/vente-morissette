@@ -28,12 +28,12 @@ use League\Fractal\TransformerAbstract;
 class CategoryTransformer extends TransformerAbstract
 {
     /**
-     * List of resources possible to include
+     * List of resources possible to include.
      *
      * @var array
      */
     protected $availableIncludes = [
-        'products'
+        'products',
     ];
 
     /**
