@@ -57,6 +57,7 @@ use Laravel\Passport\HasApiTokens;
  * @method static \Illuminate\Database\Query\Builder|\App\User whereAvatar($value)
  * @property bool $is_admin
  * @method static \Illuminate\Database\Query\Builder|\App\User whereIsAdmin($value)
+ * @property-read \Illuminate\Notifications\DatabaseNotificationCollection|\Illuminate\Notifications\DatabaseNotification[] $readNotifications
  */
 class User extends Authenticatable
 {

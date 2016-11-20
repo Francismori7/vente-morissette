@@ -3,7 +3,7 @@ namespace PHPSTORM_META {
 
    /**
     * PhpStorm Meta file, to provide autocomplete information for PhpStorm
-    * Generated on 2016-09-29.
+    * Generated on 2016-11-20.
     *
     * @author Barry vd. Heuvel <barryvdh@gmail.com>
     * @see https://github.com/barryvdh/laravel-ide-helper
@@ -15,6 +15,8 @@ namespace PHPSTORM_META {
             'router' instanceof \Illuminate\Routing\Router,
             'url' instanceof \Illuminate\Routing\UrlGenerator,
             'redirect' instanceof \Illuminate\Routing\Redirector,
+            'Psr\Http\Message\ServerRequestInterface' instanceof \Zend\Diactoros\ServerRequest,
+            'Psr\Http\Message\ResponseInterface' instanceof \Zend\Diactoros\Response,
             'Illuminate\Contracts\Routing\ResponseFactory' instanceof \Illuminate\Routing\ResponseFactory,
             'Illuminate\Contracts\Http\Kernel' instanceof \App\Http\Kernel,
             'Illuminate\Contracts\Console\Kernel' instanceof \App\Console\Kernel,
@@ -40,6 +42,9 @@ namespace PHPSTORM_META {
             'view' instanceof \Illuminate\View\Factory,
             'debugbar' instanceof \Barryvdh\Debugbar\LaravelDebugbar,
             'command.debugbar.clear' instanceof \Barryvdh\Debugbar\Console\ClearCommand,
+            'League\OAuth2\Server\AuthorizationServer' instanceof \League\OAuth2\Server\AuthorizationServer,
+            'League\OAuth2\Server\ResourceServer' instanceof \League\OAuth2\Server\ResourceServer,
+            'Spatie\Fractal\Fractal' instanceof \Spatie\Fractal\Fractal,
             'blade.compiler' instanceof \Illuminate\View\Compilers\BladeCompiler,
             'Illuminate\Broadcasting\BroadcastManager' instanceof \Illuminate\Broadcasting\BroadcastManager,
             'Illuminate\Contracts\Broadcasting\Broadcaster' instanceof \Illuminate\Broadcasting\Broadcasters\LogBroadcaster,
@@ -125,6 +130,7 @@ namespace PHPSTORM_META {
             'command.ide-helper.generate' instanceof \Barryvdh\LaravelIdeHelper\Console\GeneratorCommand,
             'command.ide-helper.models' instanceof \Barryvdh\LaravelIdeHelper\Console\ModelsCommand,
             'command.ide-helper.meta' instanceof \Barryvdh\LaravelIdeHelper\Console\MetaCommand,
+            'Laravel\Socialite\Contracts\Factory' instanceof \Laravel\Socialite\SocialiteManager,
         ],
         \Illuminate\Contracts\Container\Container::make('') => [
             '' == '@',
@@ -132,6 +138,8 @@ namespace PHPSTORM_META {
             'router' instanceof \Illuminate\Routing\Router,
             'url' instanceof \Illuminate\Routing\UrlGenerator,
             'redirect' instanceof \Illuminate\Routing\Redirector,
+            'Psr\Http\Message\ServerRequestInterface' instanceof \Zend\Diactoros\ServerRequest,
+            'Psr\Http\Message\ResponseInterface' instanceof \Zend\Diactoros\Response,
             'Illuminate\Contracts\Routing\ResponseFactory' instanceof \Illuminate\Routing\ResponseFactory,
             'Illuminate\Contracts\Http\Kernel' instanceof \App\Http\Kernel,
             'Illuminate\Contracts\Console\Kernel' instanceof \App\Console\Kernel,
@@ -157,6 +165,9 @@ namespace PHPSTORM_META {
             'view' instanceof \Illuminate\View\Factory,
             'debugbar' instanceof \Barryvdh\Debugbar\LaravelDebugbar,
             'command.debugbar.clear' instanceof \Barryvdh\Debugbar\Console\ClearCommand,
+            'League\OAuth2\Server\AuthorizationServer' instanceof \League\OAuth2\Server\AuthorizationServer,
+            'League\OAuth2\Server\ResourceServer' instanceof \League\OAuth2\Server\ResourceServer,
+            'Spatie\Fractal\Fractal' instanceof \Spatie\Fractal\Fractal,
             'blade.compiler' instanceof \Illuminate\View\Compilers\BladeCompiler,
             'Illuminate\Broadcasting\BroadcastManager' instanceof \Illuminate\Broadcasting\BroadcastManager,
             'Illuminate\Contracts\Broadcasting\Broadcaster' instanceof \Illuminate\Broadcasting\Broadcasters\LogBroadcaster,
@@ -242,6 +253,7 @@ namespace PHPSTORM_META {
             'command.ide-helper.generate' instanceof \Barryvdh\LaravelIdeHelper\Console\GeneratorCommand,
             'command.ide-helper.models' instanceof \Barryvdh\LaravelIdeHelper\Console\ModelsCommand,
             'command.ide-helper.meta' instanceof \Barryvdh\LaravelIdeHelper\Console\MetaCommand,
+            'Laravel\Socialite\Contracts\Factory' instanceof \Laravel\Socialite\SocialiteManager,
         ],
         \App::make('') => [
             '' == '@',
@@ -249,6 +261,8 @@ namespace PHPSTORM_META {
             'router' instanceof \Illuminate\Routing\Router,
             'url' instanceof \Illuminate\Routing\UrlGenerator,
             'redirect' instanceof \Illuminate\Routing\Redirector,
+            'Psr\Http\Message\ServerRequestInterface' instanceof \Zend\Diactoros\ServerRequest,
+            'Psr\Http\Message\ResponseInterface' instanceof \Zend\Diactoros\Response,
             'Illuminate\Contracts\Routing\ResponseFactory' instanceof \Illuminate\Routing\ResponseFactory,
             'Illuminate\Contracts\Http\Kernel' instanceof \App\Http\Kernel,
             'Illuminate\Contracts\Console\Kernel' instanceof \App\Console\Kernel,
@@ -274,6 +288,9 @@ namespace PHPSTORM_META {
             'view' instanceof \Illuminate\View\Factory,
             'debugbar' instanceof \Barryvdh\Debugbar\LaravelDebugbar,
             'command.debugbar.clear' instanceof \Barryvdh\Debugbar\Console\ClearCommand,
+            'League\OAuth2\Server\AuthorizationServer' instanceof \League\OAuth2\Server\AuthorizationServer,
+            'League\OAuth2\Server\ResourceServer' instanceof \League\OAuth2\Server\ResourceServer,
+            'Spatie\Fractal\Fractal' instanceof \Spatie\Fractal\Fractal,
             'blade.compiler' instanceof \Illuminate\View\Compilers\BladeCompiler,
             'Illuminate\Broadcasting\BroadcastManager' instanceof \Illuminate\Broadcasting\BroadcastManager,
             'Illuminate\Contracts\Broadcasting\Broadcaster' instanceof \Illuminate\Broadcasting\Broadcasters\LogBroadcaster,
@@ -359,6 +376,7 @@ namespace PHPSTORM_META {
             'command.ide-helper.generate' instanceof \Barryvdh\LaravelIdeHelper\Console\GeneratorCommand,
             'command.ide-helper.models' instanceof \Barryvdh\LaravelIdeHelper\Console\ModelsCommand,
             'command.ide-helper.meta' instanceof \Barryvdh\LaravelIdeHelper\Console\MetaCommand,
+            'Laravel\Socialite\Contracts\Factory' instanceof \Laravel\Socialite\SocialiteManager,
         ],
         \app('') => [
             '' == '@',
@@ -366,6 +384,8 @@ namespace PHPSTORM_META {
             'router' instanceof \Illuminate\Routing\Router,
             'url' instanceof \Illuminate\Routing\UrlGenerator,
             'redirect' instanceof \Illuminate\Routing\Redirector,
+            'Psr\Http\Message\ServerRequestInterface' instanceof \Zend\Diactoros\ServerRequest,
+            'Psr\Http\Message\ResponseInterface' instanceof \Zend\Diactoros\Response,
             'Illuminate\Contracts\Routing\ResponseFactory' instanceof \Illuminate\Routing\ResponseFactory,
             'Illuminate\Contracts\Http\Kernel' instanceof \App\Http\Kernel,
             'Illuminate\Contracts\Console\Kernel' instanceof \App\Console\Kernel,
@@ -391,6 +411,9 @@ namespace PHPSTORM_META {
             'view' instanceof \Illuminate\View\Factory,
             'debugbar' instanceof \Barryvdh\Debugbar\LaravelDebugbar,
             'command.debugbar.clear' instanceof \Barryvdh\Debugbar\Console\ClearCommand,
+            'League\OAuth2\Server\AuthorizationServer' instanceof \League\OAuth2\Server\AuthorizationServer,
+            'League\OAuth2\Server\ResourceServer' instanceof \League\OAuth2\Server\ResourceServer,
+            'Spatie\Fractal\Fractal' instanceof \Spatie\Fractal\Fractal,
             'blade.compiler' instanceof \Illuminate\View\Compilers\BladeCompiler,
             'Illuminate\Broadcasting\BroadcastManager' instanceof \Illuminate\Broadcasting\BroadcastManager,
             'Illuminate\Contracts\Broadcasting\Broadcaster' instanceof \Illuminate\Broadcasting\Broadcasters\LogBroadcaster,
@@ -476,6 +499,7 @@ namespace PHPSTORM_META {
             'command.ide-helper.generate' instanceof \Barryvdh\LaravelIdeHelper\Console\GeneratorCommand,
             'command.ide-helper.models' instanceof \Barryvdh\LaravelIdeHelper\Console\ModelsCommand,
             'command.ide-helper.meta' instanceof \Barryvdh\LaravelIdeHelper\Console\MetaCommand,
+            'Laravel\Socialite\Contracts\Factory' instanceof \Laravel\Socialite\SocialiteManager,
         ],
     ];
 }
