@@ -25,6 +25,7 @@ namespace App;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Laravel\Cashier\Billable;
 use Laravel\Passport\HasApiTokens;
 
 /**
@@ -61,7 +62,7 @@ use Laravel\Passport\HasApiTokens;
  */
 class User extends Authenticatable
 {
-    use Notifiable, HasApiTokens, SoftDeletes;
+    use Notifiable, HasApiTokens, SoftDeletes, Billable;
 
     /**
      * The attributes that are mass assignable.
@@ -87,6 +88,14 @@ class User extends Authenticatable
         'password',
         'remember_token',
     ];
+
+    public function getNameAttribute()
+    {
+        if (!$this->subscribed()) {
+            return 'Not Subscribed';
+        }
+        return $this->attributes['name'];
+    }
 
     /**
      * If the avatar doesn't exist, use Gravatar.

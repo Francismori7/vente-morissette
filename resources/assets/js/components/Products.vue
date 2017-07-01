@@ -68,6 +68,7 @@
                 }
 
                 this.shownPage = page;
+
                 this.pageRequest();
             },
             canGoToPage(page) {
@@ -92,6 +93,7 @@
                         this.buildPages(response);
                         this.fillProducts(response);
                         eventHub.$emit('products-received', this.products);
+                        document.title = 'Produits - Page ' + this.currentPage + ' - Morissette';
                     });
             },
             fillProducts(response) {
@@ -108,4 +110,5 @@
             }
         }
     }
+
 </script>

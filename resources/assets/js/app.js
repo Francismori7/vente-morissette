@@ -26,7 +26,8 @@ const app = new Vue({
 
     data: {
         'user': null,
-        'categoriesCount': 0
+        'categoriesCount': 0,
+        'currentPage': 1
     },
 
     mounted() {
@@ -38,6 +39,7 @@ const app = new Vue({
         });
 
         eventHub.$on('stats-received', this.handleStatsReceived);
+        eventHub.$on('page-changed', this.handlePageChanged);
     },
 
     methods: {
@@ -47,6 +49,10 @@ const app = new Vue({
 
         handleStatsReceived(stats) {
             this.categoriesCount = stats.categories;
+        },
+
+        handlePageChanged(page) {
+            this.currentPage = page;
         },
 
         prepareCartDropdown() {
